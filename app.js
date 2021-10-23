@@ -127,13 +127,66 @@ const promptProject = portfolioData => {
         }
     });
 };
-
-promptUser()
-        .then(promptProject)
-        .then(portfolioData => {
-        const pageHTML = generatePage(portfolioData);
-        fs.writeFile('./index.html', pageHTML, err => {
-          if (err) throw new Error(err);
-          console.log('Page created! Check out index.html in this directory to see it!');
-        })
+const mockData = {
+        name: 'Lernantino',
+        github: 'lernantino',
+        confirmAbout: true,
+        about:
+          'Dui tempus et.',
+        projects: [
+          {
+            name: 'Run Buddy',
+            description:
+              'Duis c Morbi mattis lla elit dapibus pellentesque cursus.',
+            languages: ['HTML', 'CSS'],
+            link: 'https://github.com/lernantino/run-buddy',
+            feature: true,
+            confirmAddProject: true
+          },
+          {
+            name: 'Taskinator',
+            description:
+              'Duisipsum. Morbi mattis jfringilla nulla. Inte dapibus pellentesque cursus.',
+            languages: ['JavaScript', 'HTML', 'CSS'],
+            link: 'https://github.com/lernantino/taskinator',
+            feature: true,
+            confirmAddProject: true
+          },
+          {
+            name: 'Taskmaster Pro',
+            description:
+              'Duis consectetulla eget fringilla nulla. Integes pellentesque cursus.',
+            languages: ['JavaScript', 'jQuery', 'CSS', 'HTML', 'Bootstrap'],
+            link: 'https://github.com/lernantino/taskmaster-pro',
+            feature: false,
+            confirmAddProject: true
+          },
+          {
+            name: 'Robot Gladiators',
+            description:
+              'Duis consectetur nunc nunce.',
+            languages: ['JavaScript'],
+            link: 'https://github.com/lernantino/robot-gladiators',
+            feature: false,
+            confirmAddProject: false
+          }
+        ]
+      };
+const pageHTML = generatePage(mockData)
+fs.writeFile('./index.html', pageHTML, err => {
+    if (err) throw new Error(err);
+    console.log('Page created! Check out index.html in this directory to see it!');
     })
+
+
+
+// promptUser()
+//         .then(promptProject)
+//         .then(portfolioData => {
+//         const pageHTML = generatePage(portfolioData);
+
+        // fs.writeFile('./index.html', pageHTML, err => {
+        //   if (err) throw new Error(err);
+        //   console.log('Page created! Check out index.html in this directory to see it!');
+        // })
+    //})
